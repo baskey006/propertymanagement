@@ -962,7 +962,7 @@ document.addEventListener('DOMContentLoaded', function () {
         filter: progid:DXImageTransform.Microsoft.Shadow(color='#000', Direction=135, Strength=3);
       }
       .modalbg:target {
-        display: block;
+        /*display: block;*/
         pointer-events: auto;
         /*  background: rgba(4, 10, 30, 0.8);*/
         -moz-transition: all 0.5s ease-out;
@@ -1089,24 +1089,18 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
     
 <script>
-	alert('test');
       function productClick(elem) {
-	      alert('click started');
 	      try{
-		      alert('targetname'+event.target.tagName);
         if(event.target.tagName !== 'TD') return;
         let products = event.target.closest('.bannerHSContainer').getElementsByClassName('bannerHSProduct');
-		      alert('get products');
         let rows = event.target.closest('table').tBodies[0].rows;
         let rowIdx = event.target.parentElement.rowIndex - 1;
-		      alert('rows');
         for(let row of rows) {
           row.className = '';
         }
         for(let product of products) {
           product.style.display = 'none';
         }
-		      alert('products');
         rows[rowIdx].className = 'highlighted';
         products[rowIdx].style.display = 'flex';
 	      }
@@ -1116,10 +1110,24 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
 document.addEventListener('DOMContentLoaded', function () {
-	alert('document loaded');
-	alert(document.getElementsByClassName('modalParent')[0]);
   document.getElementsByClassName('modalParent')[0].addEventListener('click', productClick);
 }, false);
     </script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script>
+	$('a.hotspot-circle').on('click', function(){
+	alert('click');
+  var thisModel = $(this).attr('href');
+  $(thisModel).show();
+  $(thisModel).find('[data-close="model"]').click(function(){ 
+    $(thisModel).hide();
+  });
+  $(window).click(function(event){
+    if('#'+event.target.id == thisModel){
+      $(thisModel).hide();
+    }
+  });
+});
+	</script>
 	</body>
   </html>
