@@ -1090,6 +1090,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
 <script>
       function productClick(elem) {
+	      try{
         if(event.target.tagName !== 'TD') return;
         let products = event.target.closest('.bannerHSContainer').getElementsByClassName('bannerHSProduct');
         let rows = event.target.closest('table').tBodies[0].rows;
@@ -1102,6 +1103,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         rows[rowIdx].className = 'highlighted';
         products[rowIdx].style.display = 'flex';
+	      }
+	      catch(e){
+		      alert(e);
+	      }
       }
 
 document.addEventListener('DOMContentLoaded', function () {
