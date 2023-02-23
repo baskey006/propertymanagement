@@ -962,7 +962,7 @@ document.addEventListener('DOMContentLoaded', function () {
         filter: progid:DXImageTransform.Microsoft.Shadow(color='#000', Direction=135, Strength=3);
       }
       .modalbg:target {
-        /*display: block;*/
+        display: block;
         pointer-events: auto;
         /*  background: rgba(4, 10, 30, 0.8);*/
         -moz-transition: all 0.5s ease-out;
@@ -1043,6 +1043,12 @@ document.addEventListener('DOMContentLoaded', function () {
         top: 310px;
         left: 570px;
       }
+	  @media only screen and (max-width: 959px) {
+  #openModalTwo:target .dialog,#openModalThree:target .dialog,#openModalFour:target .dialog,#openModalFive:target .dialog {
+        top: 0px;
+        left: 0px;
+      }
+}
       table {
         border-spacing: unset;
 		  width:100%;
@@ -1072,7 +1078,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		  font-weight: bolder;
       }
 		
-	@media (width <= 30em) {
+	@media (max-width: 959px) {
   .modalbg {
 			position: relative;
 	  max-width: 350px;
@@ -1113,21 +1119,8 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementsByClassName('modalParent')[0].addEventListener('click', productClick);
 }, false);
     </script>
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-	<script>
-	$('a.hotspot-circle').on('click', function(){
-	alert('click');
-  var thisModel = $(this).attr('href');
-  $(thisModel).show();
-  $(thisModel).find('[data-close="model"]').click(function(){ 
-    $(thisModel).hide();
-  });
-  $(window).click(function(event){
-    if('#'+event.target.id == thisModel){
-      $(thisModel).hide();
-    }
-  });
-});
+
+
 	</script>
 	</body>
   </html>
